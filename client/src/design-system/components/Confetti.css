@@ -1,0 +1,14 @@
+.confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media print {
+  .confetti {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: var(--target-min);
+  height: var(--target-min);
+  border: 1px solid var(--color-border);
+  border-radius: var(--cap-radius-pill);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: background var(--cap-motion-duration-fast);
+}
+
+@media (hover: hover) {
+  .icon-button:hover {
+    background: var(--color-surface-sunken);
+  }
+}

@@ -1,0 +1,30 @@
+.stat-list {
+  display: grid;
+  gap: var(--cap-space-3);
+  margin: var(--cap-space-5) 0 0;
+  padding-top: var(--cap-space-5);
+  border-top: 1px dashed var(--color-border-strong);
+}
+
+.stat-list--plain {
+  margin: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.stat-list__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--cap-space-4);
+  font-size: var(--cap-font-size-sm);
+}
+
+.stat-list__row dt {
+  color: var(--color-text-muted);
+}
+
+.stat-list__row dd {
+  margin: 0;
+  font-weight: var(--cap-font-weight-semibold);
+  text-align: right;
+}

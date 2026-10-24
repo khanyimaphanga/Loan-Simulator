@@ -1,0 +1,58 @@
+.callout {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--cap-space-3);
+  padding: var(--cap-space-3) var(--cap-space-4);
+  border-radius: var(--cap-radius-md);
+  font-size: var(--cap-font-size-sm);
+  border-left: 4px solid;
+}
+
+/* Icon and message stay together; when space runs out, only the action moves to its own line. */
+.callout__main {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--cap-space-3);
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.callout__main > svg {
+  flex: none;
+  margin-top: 1px;
+}
+
+.callout__content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* May shrink to the callout's width, so a group of buttons inside can wrap rather than overflow. */
+.callout__action {
+  flex: 0 1 auto;
+  max-width: 100%;
+}
+
+.callout--info {
+  background: var(--color-brand-soft);
+  border-color: var(--color-brand);
+}
+
+.callout--success {
+  background: var(--color-success-soft);
+  border-color: var(--color-success);
+  color: var(--color-success-text);
+}
+
+.callout--warning {
+  background: var(--color-warning-soft);
+  border-color: var(--color-warning);
+  color: var(--color-warning-text);
+}
+
+.callout--danger {
+  background: var(--color-danger-soft);
+  border-color: var(--color-danger);
+  color: var(--color-danger-text);
+}

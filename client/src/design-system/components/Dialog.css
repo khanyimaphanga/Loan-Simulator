@@ -1,0 +1,92 @@
+.dialog {
+  width: min(560px, calc(100% - 2 * var(--cap-space-4)));
+  max-height: calc(100dvh - 2 * var(--cap-space-6));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0;
+  border: 0;
+  border-radius: var(--card-radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+}
+
+.dialog::backdrop {
+  background: color-mix(in srgb, var(--cap-color-blue-900) 55%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.dialog[open] {
+  animation: dialog-in var(--cap-motion-duration-base) var(--cap-motion-easing-standard);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.dialog__panel {
+  display: grid;
+  gap: var(--cap-space-5);
+  padding: var(--card-padding);
+}
+
+.dialog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--cap-space-4);
+}
+
+.dialog__title {
+  font-size: var(--cap-font-size-xl);
+  font-weight: var(--cap-font-weight-bold);
+  line-height: 1.25;
+}
+
+.dialog__close {
+  flex: none;
+  margin: calc(var(--cap-space-2) * -1) calc(var(--cap-space-2) * -1) 0 0;
+  border-color: transparent;
+}
+
+.dialog__body {
+  display: grid;
+  gap: var(--cap-space-5);
+}
+
+.dialog__actions {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+  gap: var(--cap-space-3);
+  padding-top: var(--cap-space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Phones: a bottom sheet, so the actions sit within thumb reach. */
+@media (max-width: 640px) {
+  .dialog {
+    width: 100%;
+    max-width: 100%;
+    margin: auto 0 0;
+    border-radius: var(--card-radius) var(--card-radius) 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .dialog[open] {
+    animation-name: sheet-in;
+  }
+
+  .dialog__actions > * {
+    flex: 1 1 100%;
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}

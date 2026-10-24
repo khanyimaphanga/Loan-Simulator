@@ -1,0 +1,92 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cap-space-2);
+  min-height: var(--button-height);
+  padding: 0 var(--cap-space-6);
+  border: 1.5px solid transparent;
+  border-radius: var(--button-radius);
+  font-weight: var(--cap-font-weight-semibold);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--cap-motion-duration-fast),
+    border-color var(--cap-motion-duration-fast),
+    transform var(--cap-motion-duration-fast);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
+
+.button--primary {
+  background: var(--color-action);
+  color: var(--color-action-text);
+}
+
+@media (hover: hover) {
+  .button--primary:hover:not(:disabled) {
+    background: var(--color-action-hover);
+  }
+}
+
+.button--secondary {
+  border-color: var(--color-action);
+  color: var(--color-action);
+  background: var(--color-surface);
+}
+
+@media (hover: hover) {
+  .button--secondary:hover:not(:disabled) {
+    background: var(--color-brand-soft);
+  }
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+
+@media (hover: hover) {
+  .button--ghost:hover:not(:disabled) {
+    background: var(--color-surface-sunken);
+  }
+}
+
+.button--large {
+  min-height: 56px;
+  padding: 0 var(--cap-space-8);
+  font-size: var(--cap-font-size-lg);
+}
+
+.button--small {
+  min-height: 36px;
+  padding: 0 var(--cap-space-4);
+  font-size: var(--cap-font-size-sm);
+}
+
+/* On touch screens every button keeps the full tap target, whatever its visual size. */
+@media (pointer: coarse) {
+  .button--small {
+    min-height: var(--target-min);
+  }
+}
+
+.button--link {
+  display: inline;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-action);
+  font-weight: var(--cap-font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}

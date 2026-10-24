@@ -1,0 +1,15 @@
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cap-space-3);
+  min-height: var(--target-min);
+  cursor: pointer;
+  font-size: var(--cap-font-size-sm);
+  font-weight: var(--cap-font-weight-medium);
+}
+
+.checkbox input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-action);
+}

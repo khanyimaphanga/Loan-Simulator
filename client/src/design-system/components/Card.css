@@ -1,0 +1,39 @@
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-sm);
+  min-width: 0;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--cap-space-4);
+  flex-wrap: wrap;
+}
+
+.card__title {
+  display: flex;
+  align-items: center;
+  gap: var(--cap-space-2);
+  font-size: var(--cap-font-size-lg);
+  font-weight: var(--cap-font-weight-semibold);
+}
+
+.card__subtitle {
+  margin-top: var(--cap-space-1);
+  color: var(--color-text-muted);
+  font-size: var(--cap-font-size-sm);
+}
+
+.card--accent {
+  background: linear-gradient(160deg, var(--color-brand-soft), var(--color-surface) 70%);
+  border-color: color-mix(in srgb, var(--color-brand) 30%, var(--color-border));
+}
+
+.card--accent .card__title svg {
+  color: var(--color-brand);
+}

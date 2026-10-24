@@ -1,0 +1,130 @@
+.field {
+  display: grid;
+  gap: var(--cap-space-2);
+}
+
+.field__label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--cap-space-2);
+  padding: 0;
+  font-weight: var(--cap-font-weight-semibold);
+}
+
+.field__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--cap-space-1) var(--cap-space-3);
+}
+
+/* The label claims the width its text needs: a short label keeps its reading on the same line, while a
+   long question wraps the reading beneath it instead of being squeezed. */
+.field__header .field__label {
+  flex: 1 1 auto;
+}
+
+/* Live value shown opposite the label, e.g. a slider's current reading. */
+.field__aside {
+  font-weight: var(--cap-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.field__aside--placeholder {
+  font-weight: var(--cap-font-weight-medium);
+  color: var(--color-text-muted);
+}
+
+.field__optional {
+  font-size: var(--cap-font-size-xs);
+  font-weight: var(--cap-font-weight-medium);
+  color: var(--color-text-muted);
+}
+
+.field__hint {
+  font-size: var(--cap-font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: calc(var(--cap-space-1) * -1);
+}
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: var(--cap-space-2);
+  font-size: var(--cap-font-size-sm);
+  font-weight: var(--cap-font-weight-medium);
+  color: var(--color-danger-text);
+}
+
+.input {
+  width: 100%;
+  height: var(--input-height);
+  padding-inline: var(--cap-space-4);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--input-radius);
+  background: var(--color-surface);
+  font-size: var(--cap-font-size-lg);
+  font-weight: var(--cap-font-weight-medium);
+  transition:
+    border-color var(--cap-motion-duration-fast),
+    box-shadow var(--cap-motion-duration-fast);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  font-weight: var(--cap-font-weight-regular);
+}
+
+@media (hover: hover) {
+  .input:hover {
+    border-color: var(--color-text-muted);
+  }
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-action);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-focus-ring) 30%, transparent);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.input-affix {
+  position: relative;
+  max-width: 340px;
+}
+
+.input--affixed {
+  padding-left: calc(var(--cap-space-4) + 1.25ch);
+}
+
+.input--affixed,
+.input--suffixed {
+  padding-right: 6.5rem;
+}
+
+.input-affix__prefix,
+.input-affix__suffix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+}
+
+.input-affix__prefix {
+  left: var(--cap-space-4);
+  font-size: var(--cap-font-size-lg);
+  font-weight: var(--cap-font-weight-semibold);
+  color: var(--color-text);
+}
+
+.input-affix__suffix {
+  right: var(--cap-space-4);
+  font-size: var(--cap-font-size-sm);
+}

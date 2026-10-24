@@ -1,0 +1,36 @@
+.meter {
+  height: 8px;
+  border-radius: var(--cap-radius-pill);
+  background: var(--color-chart-track);
+  overflow: hidden;
+}
+
+.meter__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-text-muted);
+  transition: width var(--cap-motion-duration-slow) var(--cap-motion-easing-standard);
+}
+
+.meter--brand .meter__fill {
+  background: var(--color-brand);
+}
+
+.meter--success .meter__fill {
+  background: var(--color-success);
+}
+
+.meter--warning .meter__fill {
+  background: var(--color-warning);
+}
+
+.meter--danger .meter__fill {
+  background: var(--color-danger);
+}
+
+@media (forced-colors: active) {
+  .meter__fill {
+    forced-color-adjust: none;
+  }
+}

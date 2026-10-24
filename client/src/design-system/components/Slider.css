@@ -1,0 +1,125 @@
+.slider {
+  display: grid;
+  gap: var(--cap-space-1);
+}
+
+.slider__control {
+  display: flex;
+  align-items: center;
+  gap: var(--cap-space-3);
+}
+
+.slider__track {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+/* Threshold tick. It sits behind the input so the thumb passes over it; the track paints the same line in its middle. */
+.slider__marker {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: calc(100% * var(--marker));
+  width: 3px;
+  height: 20px;
+  border-radius: var(--cap-radius-pill);
+  background: var(--color-text);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.slider__input {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: var(--target-min);
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.slider__input::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: var(--cap-radius-pill);
+  background: var(--track, linear-gradient(to right, var(--color-brand) var(--fill), var(--color-surface-sunken) var(--fill)));
+}
+
+.slider__input::-moz-range-track {
+  height: 8px;
+  border-radius: var(--cap-radius-pill);
+  background: var(--track, linear-gradient(to right, var(--color-brand) var(--fill), var(--color-surface-sunken) var(--fill)));
+}
+
+.slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 3px solid var(--color-action);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--cap-motion-duration-fast);
+}
+
+.slider__input::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 3px solid var(--color-action);
+  box-shadow: var(--shadow-md);
+}
+
+.slider__input:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.slider__input:focus-visible {
+  outline: none;
+}
+
+.slider__input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-focus-ring) 40%, transparent);
+}
+
+.slider__input:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-focus-ring) 40%, transparent);
+}
+
+/* Nothing chosen yet: a quieter thumb invites the first drag without implying a value. */
+.slider--unset .slider__input::-webkit-slider-thumb {
+  border-color: var(--color-border-strong);
+  border-style: dashed;
+}
+
+.slider--unset .slider__input::-moz-range-thumb {
+  border-color: var(--color-border-strong);
+  border-style: dashed;
+}
+
+.slider--invalid .slider__input::-webkit-slider-thumb {
+  border-color: var(--color-danger);
+}
+
+.slider--invalid .slider__input::-moz-range-thumb {
+  border-color: var(--color-danger);
+}
+
+.slider__scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--cap-font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* Line the scale up with the track, not the step buttons either side of it. */
+.slider--with-steps .slider__scale {
+  padding-inline: calc(var(--target-min) + var(--cap-space-3));
+}
